@@ -1,1 +1,195 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VideoAI Studio</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #090b12;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 22px;
+  border-bottom: 1px solid #242735;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+header span {
+  color: #8b75ff;
+}
+
+main {
+  max-width: 750px;
+  margin: 55px auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #a4a7b5;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.panel {
+  background: #141722;
+  border: 1px solid #292e40;
+  border-radius: 15px;
+  padding: 24px;
+}
+
+label {
+  display: block;
+  margin: 18px 0 9px;
+  font-weight: bold;
+}
+
+textarea, select {
+  width: 100%;
+  padding: 14px;
+  background: #0b0e18;
+  color: white;
+  border: 1px solid #34394d;
+  border-radius: 9px;
+  font-size: 15px;
+}
+
+textarea {
+  height: 130px;
+  resize: vertical;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 16px;
+  border: none;
+  border-radius: 9px;
+  background: #7959ed;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #9178ff;
+}
+
+#status {
+  text-align: center;
+  color: #aaa;
+  margin-top: 18px;
+}
+
+.preview {
+  margin-top: 25px;
+  background: #141722;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  color: #a4a7b5;
+}
+
+footer {
+  text-align: center;
+  color: #666;
+  padding: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>Video<span>AI</span> Studio</header>
+
+<main>
+<h1>Crea vídeos con IA</h1>
+
+<p class="subtitle">
+Describe lo que imaginas y deja que la inteligencia artificial lo genere.
+</p>
+
+<div class="panel">
+
+<label for="prompt">Describe tu vídeo</label>
+
+<textarea id="prompt" placeholder="Ejemplo: Un personaje caricaturesco entra en una habitación y comienza a hablar..."></textarea>
+
+<div class="options">
+
+<div>
+<label for="duration">Duración</label>
+<select id="duration">
+<option value="5">5 segundos</option>
+<option value="10">10 segundos</option>
+<option value="20">20 segundos</option>
+<option value="30">30 segundos</option>
+<option value="40">40 segundos</option>
+</select>
+</div>
+
+<div>
+<label for="format">Formato</label>
+<select id="format">
+<option value="9:16">Vertical 9:16</option>
+<option value="16:9">Horizontal 16:9</option>
+<option value="1:1">Cuadrado 1:1</option>
+</select>
+</div>
+
+</div>
+
+<button onclick="generateVideo()">GENERAR VÍDEO</button>
+
+<p id="status">Listo para crear.</p>
+
+</div>
+
+<div class="preview">
+<h3>Vista previa</h3>
+<p>Tu vídeo aparecerá aquí cuando conectemos el motor de IA.</p>
+</div>
+
+</main>
+
+<footer>VideoAI Studio · AI Video Generator</footer>
+
+<script>
+function generateVideo() {
+  const prompt = document.getElementById("prompt").value.trim();
+  const status = document.getElementById("status");
+
+  if (!prompt) {
+    status.textContent = "Escribe una descripción para tu vídeo.";
+    return;
+  }
+
+  status.textContent =
+    "La interfaz funciona. El motor de generación de IA todavía no está conectado.";
+}
+</script>
+
+</body>
+</html>
